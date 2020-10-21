@@ -22,15 +22,23 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         child: ListView(
           children: <Widget>[
             DrawerHeader(
-              padding: EdgeInsets.symmetric(vertical: 32),
-              child: Text(
-                'Welcome\nKids',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 36,
+              // padding: EdgeInsets.symmetric(vertical: 32),
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/header.PNG'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
+                // child: Text(
+                //   'Welcome Kids',
+                //   textAlign: TextAlign.justify,
+                //   style: TextStyle(
+                //     color: Colors.white,
+                //     fontWeight: FontWeight.bold,
+                //     fontSize: 36,
+                //   ),
+                // ),
               ),
               decoration: BoxDecoration(
                 color: Colors.deepPurple[400],
