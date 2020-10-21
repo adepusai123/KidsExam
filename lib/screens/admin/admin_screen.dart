@@ -60,7 +60,7 @@ class _AdminScreenState extends State<AdminScreen> {
                   ),
                   FormTextField(
                     ctrlInput: _ctrlOptions,
-                    labelText: 'Options',
+                    labelText: 'Options (,seperated values)',
                     onSaved: (val) {
                       setState(() {
                         _question.options = val;
@@ -103,26 +103,6 @@ class _AdminScreenState extends State<AdminScreen> {
                       ),
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: RaisedButton(
-                      color: Colors.deepPurple[400],
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return Questions();
-                        }));
-                      },
-                      child: Text(
-                        'Show Questions',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -136,8 +116,17 @@ class _AdminScreenState extends State<AdminScreen> {
     var form = _formKey.currentState;
     if (form.validate()) {
       form.save();
-      print(_question.toMap());
       await dbHelper.insertQuestion(_question);
     }
+    _resetForm();
+  }
+
+  _resetForm() {
+    setState(() {
+      _formKey.currentState.reset();
+      _ctrlQuestion.clear();
+      _ctrlOptions.clear();
+      _ctrlAnswer.clear();
+    });
   }
 }

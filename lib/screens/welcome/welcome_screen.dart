@@ -62,7 +62,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               hoverColor: Colors.deepPurple[100],
               autofocus: true,
               title: Text(
-                'Admin Login',
+                'Questions',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
@@ -71,7 +71,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
               onTap: () {
                 setState(() {
-                  _screen = 'admin';
+                  _screen = 'questions';
                 });
                 Navigator.pop(context);
               },
@@ -84,7 +84,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               hoverColor: Colors.deepPurple[100],
               autofocus: true,
               title: Text(
-                'Questions',
+                'Add Question',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
@@ -93,7 +93,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
               onTap: () {
                 setState(() {
-                  _screen = 'questions';
+                  _screen = 'admin';
                 });
                 Navigator.pop(context);
               },
