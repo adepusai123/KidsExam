@@ -13,15 +13,20 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text('You are done!'),
-        Text('You are Score is $score'),
-        RaisedButton(
-          onPressed: press,
-          child: length != 0 ? Text('Restart Quiz') : Text('Load Questions'),
-        )
-      ],
-    );
+    return length != 0
+        ? Column(
+            children: [
+              Text('You are done!'),
+              Text('You are Score is $score'),
+              RaisedButton(
+                onPressed: press,
+                child: Text('Restart Quiz'),
+              )
+            ],
+          )
+        : RaisedButton(
+            onPressed: press,
+            child: Text('Load Questions'),
+          );
   }
 }
