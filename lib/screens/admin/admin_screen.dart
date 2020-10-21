@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kids_exam/components/textFormField.dart';
 import 'package:kids_exam/models/questions.dart';
-import 'package:kids_exam/screens/admin/components/questions_screen.dart';
+// import 'package:kids_exam/screens/admin/components/questions_screen.dart';
 import 'package:kids_exam/utils/database_helper.dart';
 
 class AdminScreen extends StatefulWidget {

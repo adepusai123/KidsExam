@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kids_exam/models/questions.dart';
 import 'package:kids_exam/screens/exam/components/quiz.dart';
 import 'package:kids_exam/screens/exam/components/result.dart';
+import 'package:kids_exam/screens/welcome/welcome_screen.dart';
 import 'package:kids_exam/utils/database_helper.dart';
 
 class ExamScreen extends StatefulWidget {
@@ -38,7 +39,11 @@ class _ExamScreenState extends State<ExamScreen> {
               index: qIndex,
               press: calcTotalScore,
             )
-          : Result(press: resetQuiz, score: totalScore),
+          : Result(
+              press: resetQuiz,
+              score: totalScore,
+              length: _questions.length,
+            ),
     );
   }
 
@@ -49,7 +54,18 @@ class _ExamScreenState extends State<ExamScreen> {
     });
   }
 
-  void resetQuiz() {
+  void resetQuiz() async {
+    if (_questions.length == 0) {
+      await _dbHelper.insertInitialQuestions({
+        'question': 'What is the value of 2 X 2 = __?',
+        'options': '2,4,8,10',
+        'answer': '4',
+        'score': 1
+      });
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return WelcomeScreen();
+      }));
+    }
     setState(() {
       totalScore = 0;
       qIndex = 0;
