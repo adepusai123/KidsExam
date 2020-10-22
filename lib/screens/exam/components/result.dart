@@ -24,9 +24,15 @@ class Result extends StatelessWidget {
               )
             ],
           )
-        : RaisedButton(
-            onPressed: press,
-            child: Text('Load Questions'),
+        : Column(
+            children: [
+              Text('No Questions here.'),
+              Text('Click below button to add basic questions.'),
+              RaisedButton(
+                onPressed: press,
+                child: Text('Load Questions'),
+              ),
+            ],
           );
   }
 }
