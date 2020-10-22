@@ -17,7 +17,15 @@ class Result extends StatelessWidget {
         ? Column(
             children: [
               Text('You are done!'),
-              Text('You are Score is $score'),
+              Text('You are Score is: '),
+              Text(
+                '$score out of $length',
+                style: TextStyle(
+                  color: Colors.deepPurple[400],
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               RaisedButton(
                 onPressed: press,
                 child: Text('Restart Quiz'),
